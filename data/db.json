@@ -1,0 +1,61 @@
+{
+  "vacinas": [
+    {
+      "id": 1,
+      "nome": "CORONAVAC",
+      "doses": 2
+    },
+    {
+      "id": 2,
+      "nome": "PFIZER",
+      "doses": 1
+    },
+    {
+      "nome": "Astrazeneca",
+      "doses": "3",
+      "id": 5
+    }
+  ],
+  "aplicadores": [
+    {
+      "nome": "joao",
+      "coren": "23e",
+      "id": 1
+    },
+    {
+      "nome": "maria silva",
+      "coren": "05678",
+      "id": 2
+    },
+    {
+      "nome": "pedro",
+      "coren": "12er",
+      "id": 3
+    }
+  ],
+  "aplicacoes": [
+    {
+      "pessoa": {
+        "nome": "maria jose",
+        "cpf": "12",
+        "birthDate": "2022-03-09",
+        "birth_date": "2022-03-09"
+      },
+      "vacina": "PFIZER",
+      "coren": "05678",
+      "id": 1
+    },
+    {
+      "pessoa": {
+        "nome": "Jose maria",
+        "cpf": "1234589765",
+        "birthDate": "2021-11-04",
+        "birth_date": "2021-11-04"
+      },
+      "vacina": "Astrazeneca",
+      "coren": "12er",
+      "id": 2
+    }
+  ],
+  "pessoa": []
+}
