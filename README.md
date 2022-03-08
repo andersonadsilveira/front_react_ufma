@@ -1,8 +1,10 @@
 # Executando o projeto
 
-'npm start' para o aplicativo
+'npm install': apenas na primeira vez para instalar os módulos
 
-'npx json-server --watch data/db.json --port 8000' para o servidor de teste
+'npm start' para executar o aplicativo
+
+'npx json-server --watch data/db.json --port 8000' para iniciador servidor de API de teste
 
 
 ## .env
