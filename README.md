@@ -1,6 +1,7 @@
 # Executando o projeto
 
-'npm start' para o aplicativo e
+'npm start' para o aplicativo
+
 'npx json-server --watch data/db.json --port 8000' para o servidor de teste
 
 
