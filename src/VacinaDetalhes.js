@@ -84,7 +84,7 @@ const VacinaDetalhes = () => {
                 <input type="text" required value={dosesNovo} onChange={(e) => setDosesNovo(e.target.value)}></input>
                 <button>Atualizar</button>
                 </form>
-                <button onClick={handleClickC}>Cancelar</button>
+                <button className="cancelar" onClick={handleClickC}>Cancelar</button>
                 </div>
             )}
         </div>

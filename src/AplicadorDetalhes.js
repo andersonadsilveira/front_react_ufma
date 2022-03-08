@@ -79,7 +79,7 @@ const AplicadorDetalhes = () => {
                 <input type="text" required value={corenNovo} onChange={(e) => setCorenNovo(e.target.value)}></input>
                 <button>Atualizar</button>
                 </form>
-                <button onClick={handleClickC}>Cancelar</button>
+                <button className="cancelar" onClick={handleClickC}>Cancelar</button>
                 </div>
             )}
         </div>
