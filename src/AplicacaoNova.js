@@ -8,12 +8,9 @@ const AplicacaoNova = () => {
     const {data:vacinas, erro} = useFetchGET("/vacinas");
     const {data:aplicadores, erro2} = useFetchGET("/aplicadores");
     
-    // const [nome, setNome] = useState('');
-    // const [doses, setDoses] = useState('');
-    // const [batchNumber, setBatchNumber] = useState('');
+    
     const [nome,setNome] = useState('');
     const [cpf,setCpf] = useState('');
-    // const [nascimento,setNascimento] = useState('');
     const [data,setData] = useState('');
     
     const [vacinaNome,setVacinaNome] = useState('');
@@ -23,28 +20,21 @@ const AplicacaoNova = () => {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        // const vacina = {"name":nome, doses,batchNumber,"batch-number":batchNumber};
-        // console.log(typeof(vacidaID));
-        // console.log(vacinas["vacians"][0]["id"]);
         let aplicacao={"pessoa":{"nome":nome,"cpf":cpf,"birthDate":data,"birth_date":data}};
         if(!vacinaNome)
             {
                 aplicacao["vacina"] = vacinas[0]["nome"];
-                // aplicacao["vaccineId"] = vacinas[0]["id"];
             }
             else{
                 aplicacao["vacina"] = vacinaNome;
-                // aplicacao["vaccineId"] = vacidaID;
             }
 
         if(!aplicadorCoren)
         {
             aplicacao["coren"] = aplicadores[0]["coren"];
-            // aplicacao["vaccineId"] = vacinas[0]["id"];
         }
         else{
             aplicacao["coren"] = aplicadorCoren;
-            // aplicacao["vaccineId"] = vacidaID;
         }
         
         console.log(aplicacao);
@@ -65,12 +55,6 @@ const AplicacaoNova = () => {
         <div>
             <div className="formulario">
             <form onSubmit={handleSubmit}>
-                {/* <label>Nome:</label>
-                <input type="text" required value={nome} onChange={(e) => setNome(e.target.value)}/>
-                <label>Número de doses:</label>
-                <input type="text" required value={doses} onChange={(e) => setDoses(e.target.value)}></input>
-                <label>Número de lote:</label>
-                <input type="text" required value={batchNumber} onChange={(e) => setBatchNumber(e.target.value)}></input> */}
                 <label>Nome:</label>
                 <input type="text" required value={nome} onChange={(e) => setNome(e.target.value)}/>
                 <label>CPF:</label>

@@ -60,7 +60,6 @@ const VacinaDetalhes = () => {
                     <tr>
                         <th>Nome</th>
                         <th>Doses</th>
-                        {/* <th>Numero de lote</th> */}
                         <th>Editar</th>
                         <th>Deletar</th>
                         <th>Voltar</th>
@@ -69,8 +68,6 @@ const VacinaDetalhes = () => {
                         <tr key={vacina.id}>
                             <td>{vacina.nome}</td>
                             <td>{vacina.doses}</td>
-                            {/* <td>{vacina.batchNumber}</td> */}
-                            {/* <td><Link to={`/saude/vacinas/atualiza/${vacina.id}`} ><button>Atualizar</button></Link></td> */}
                             <td><button className="botao-editar" onClick={handleClickE}></button></td>
                             <td><button className="botao-delete" onClick={handleClickD}></button></td>
                             <td><Link to='/saude/vacinas/'><button className="botao-ir"></button></Link></td>
@@ -85,8 +82,6 @@ const VacinaDetalhes = () => {
                 <input type="text" required value={nomeNovo} onChange={(e) => setNomeNovo(e.target.value)}/>
                 <label>Número de doses:</label>
                 <input type="text" required value={dosesNovo} onChange={(e) => setDosesNovo(e.target.value)}></input>
-                {/* <label>Número de lote:</label>
-                <input type="text" required value={batchNumberNovo} onChange={(e) => setBatchNumberNovo(e.target.value)}></input> */}
                 <button>Atualizar</button>
                 </form>
                 <button onClick={handleClickC}>Cancelar</button>

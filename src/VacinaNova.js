@@ -6,7 +6,6 @@ const VacinaNova = () => {
     
     const [nome, setNome] = useState('');
     const [doses, setDoses] = useState('');
-    // const [batchNumber, setBatchNumber] = useState('');
     const [ispending, setIsPending] = useState(false);
     const history = useHistory();
     
@@ -35,8 +34,6 @@ const VacinaNova = () => {
                 <input type="text" required value={nome} onChange={(e) => setNome(e.target.value)}/>
                 <label>Número de doses:</label>
                 <input type="text" required value={doses} onChange={(e) => setDoses(e.target.value)}></input>
-                {/* <label>Número de lote:</label>
-                <input type="text" required value={batchNumber} onChange={(e) => setBatchNumber(e.target.value)}></input> */}
                 {!ispending && <button>Adicionar</button>}
                 {ispending && <button>Adicionando ...</button>}
             </form>

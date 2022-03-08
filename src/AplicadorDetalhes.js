@@ -11,8 +11,6 @@ const AplicadorDetalhes = () => {
     const [editing,setEditing] = useState(false);
     const [nomeNovo,setNomeNovo] = useState('');
     const [corenNovo,setCorenNovo] = useState('');
-    // const [batchNumberNovo,setBatchNumberNovo] = useState('');
-    // console.log(vacina);
 
     const history = useHistory();
 
@@ -29,14 +27,11 @@ const AplicadorDetalhes = () => {
         setEditing(true);
         setNomeNovo(aplicador.nome);
         setCorenNovo(aplicador.coren);
-        // setBatchNumberNovo(vacina.batchNumber);
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const aplicadorNova = {"nome":nomeNovo, "coren":corenNovo};
-        // console.log(vacinaNova);
-        // setIsPending(true);
 
         fetch(process.env.REACT_APP_SERVER_URL+'/aplicadores/'+id,{
             method: 'PUT',
@@ -60,7 +55,6 @@ const AplicadorDetalhes = () => {
                     <tr>
                         <th>Nome</th>
                         <th>Coreme</th>
-                        {/* <th>Numero de lote</th> */}
                         <th>Editar</th>
                         <th>Deletar</th>
                         <th>Voltar</th>
@@ -69,8 +63,6 @@ const AplicadorDetalhes = () => {
                         <tr key={aplicador.id}>
                             <td>{aplicador.nome}</td>
                             <td>{aplicador.coreme}</td>
-                            {/* <td>{vacina.batchNumber}</td> */}
-                            {/* <td><Link to={`/saude/vacinas/atualiza/${vacina.id}`} ><button>Atualizar</button></Link></td> */}
                             <td><button className="botao-editar" onClick={handleClickE}></button></td>
                             <td><button className="botao-delete" onClick={handleClickD}></button></td>
                             <td><Link to='/saude/aplicadores/'><button className="botao-ir"></button></Link></td>
@@ -85,8 +77,6 @@ const AplicadorDetalhes = () => {
                 <input type="text" required value={nomeNovo} onChange={(e) => setNomeNovo(e.target.value)}/>
                 <label>Número do Coren:</label>
                 <input type="text" required value={corenNovo} onChange={(e) => setCorenNovo(e.target.value)}></input>
-                {/* <label>Número de lote:</label>
-                <input type="text" required value={batchNumberNovo} onChange={(e) => setBatchNumberNovo(e.target.value)}></input> */}
                 <button>Atualizar</button>
                 </form>
                 <button onClick={handleClickC}>Cancelar</button>
