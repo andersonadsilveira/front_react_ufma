@@ -4,8 +4,6 @@
 
 'npm start' para executar o aplicativo
 
-'npx json-server --watch data/db.json --port 8000' para iniciador servidor de API de teste
-
 
 ## .env
 
