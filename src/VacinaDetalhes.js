@@ -7,17 +7,17 @@ import { useState } from "react";
 const VacinaDetalhes = () => {
 
     const {id} = useParams();
-    const {data:vacina, erro} = useFetchGET('/vacinas/'+id);
+    const {data:vacina, erro} = useFetchGET('/vaccines/'+id);
     const [editing,setEditing] = useState(false);
     const [nomeNovo,setNomeNovo] = useState('');
     const [dosesNovo,setDosesNovo] = useState('');
-    // const [batchNumberNovo,setBatchNumberNovo] = useState('');
+    const [batchNumberNovo,setBatchNumberNovo] = useState('');
     // console.log(vacina);
 
     const history = useHistory();
 
     const handleClickD = () => {
-        fetch(process.env.REACT_APP_SERVER_URL + '/vacinas/' + id,{
+        fetch(process.env.REACT_APP_SERVER_URL + '/vaccines/' + id,{
             method: 'DELETE',
         })
         .then(() => {
@@ -29,16 +29,16 @@ const VacinaDetalhes = () => {
         setEditing(true);
         setNomeNovo(vacina.nome);
         setDosesNovo(vacina.doses);
-        // setBatchNumberNovo(vacina.batchNumber);
+        setBatchNumberNovo(vacina.batchNumber);
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const vacinaNova = {"nome":nomeNovo, "doses":dosesNovo};
+        const vacinaNova = {"name":nomeNovo, "doses":dosesNovo, "batch-number":batchNumberNovo, "batchNumber":batchNumberNovo};
         // console.log(vacinaNova);
         // setIsPending(true);
 
-        fetch(process.env.REACT_APP_SERVER_URL+'/vacinas/'+id,{
+        fetch(process.env.REACT_APP_SERVER_URL+'/vaccines/'+id,{
             method: 'PUT',
             headers: {"Content-Type":"application/json"},
             body: JSON.stringify(vacinaNova),
@@ -60,6 +60,7 @@ const VacinaDetalhes = () => {
                     <tr>
                         <th>Nome</th>
                         <th>Doses</th>
+                        <th>Número de lote</th>
                         <th>Editar</th>
                         <th>Deletar</th>
                         <th>Voltar</th>
@@ -68,6 +69,7 @@ const VacinaDetalhes = () => {
                         <tr key={vacina.id}>
                             <td>{vacina.nome}</td>
                             <td>{vacina.doses}</td>
+                            <td>{vacina.batchNumber}</td>
                             <td><button className="botao-editar" onClick={handleClickE}></button></td>
                             <td><button className="botao-delete" onClick={handleClickD}></button></td>
                             <td><Link to='/saude/vacinas/'><button className="botao-ir"></button></Link></td>
@@ -82,6 +84,8 @@ const VacinaDetalhes = () => {
                 <input type="text" required value={nomeNovo} onChange={(e) => setNomeNovo(e.target.value)}/>
                 <label>Número de doses:</label>
                 <input type="text" required value={dosesNovo} onChange={(e) => setDosesNovo(e.target.value)}></input>
+                <label>Número de lote:</label>
+                <input type="text" required value={batchNumberNovo} onChange={(e) => setBatchNumberNovo(e.target.value)}></input>
                 <button>Atualizar</button>
                 </form>
                 <button className="cancelar" onClick={handleClickC}>Cancelar</button>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const AplicadorLista = () => {
 
-    const {data:aplicadores, erro} = useFetchGET("/aplicadores");
+    const {data:aplicadores, erro} = useFetchGET("/applicators");
 
     return ( 
         <div>
@@ -13,9 +13,9 @@ const AplicadorLista = () => {
                         <th>Nome</th>
                         <th>Detalhes</th>
                     </tr>
-                    {aplicadores && aplicadores.map( (aplicador) => (
+                    {aplicadores && aplicadores["vaccines"].map( (aplicador) => (
                         <tr key={aplicador.id}>
-                            <td>{aplicador.nome}</td>
+                            <td>{aplicador.name}</td>
                             <td><Link to={`/saude/aplicadores/${aplicador.id}`}><button className="botao-ir"></button></Link></td>
                         </tr>
                     ) )}

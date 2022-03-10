@@ -7,12 +7,15 @@ import Home from './Home';
 import VacinaLista from './VacinaLista';
 import VacinaDetalhes from './VacinaDetalhes';
 import NavSaude from './NavSaude';
+import NavCidadao from './NavCidadao';
 import VacinaNova from './VacinaNova';
 import AplicadorLista from './AplicadorLista';
 import AplicadorNova from './AplicadorNova';
 import AplicadorDetalhes from './AplicadorDetalhes';
-import AplicacaoLista from './AplicacaoLista';
+// import AplicacaoLista from './AplicacaoLista';
 import AplicacaoNova from './AplicacaoNova';
+import VacinasTomadas from './VacinasTomadas';
+import ConsultaVacina from './ConsultaVacinas';
 
 function App() {
   return (
@@ -22,14 +25,20 @@ function App() {
           <Route exact path="/saude/*">
             <NavSaude/>
           </Route>
-          <Route exact path="/">
-            <NavSaude/>
+          <Route exact path="/*">
+            <NavCidadao/>
           </Route>
         </Switch>
         <Switch>
           <Route exact path="/">
-            {/* <Home/> */}
-            <AplicacaoLista/>
+            <Home/>
+            {/* <AplicacaoLista/> */}
+          </Route>
+          <Route exact path="/cidadao/consultas">
+            <ConsultaVacina/>
+          </Route>
+          <Route exact path="/cidadao/consultas/:id">
+            <VacinasTomadas/>
           </Route>
           <Route exact path="/saude/vacinas">
             <VacinaLista/>
@@ -49,9 +58,9 @@ function App() {
           <Route exact path="/saude/aplicadores/:id">
             <AplicadorDetalhes/>
           </Route>
-          <Route exact path="/saude/aplicacoes">
-            <AplicacaoLista/>
-          </Route>
+          {/* <Route exact path="/saude/aplicacoes"> */}
+            {/* <AplicacaoLista/> */}
+          {/* </Route> */}
           <Route exact path="/saude/aplicacoes/nova">
             <AplicacaoNova/>
           </Route>

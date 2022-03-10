@@ -5,7 +5,7 @@ const NavSaude = () => {
         <nav className="navbar">
             <div className="links">
                 <Link to="/">Home</Link>
-                <Link to="/saude/aplicacoes">Aplicacões</Link>
+                <Link to="/saude/aplicacoes/nova">Aplicacões</Link>
                 <Link to="/saude/vacinas">Vacinas</Link>
                 <Link to="/saude/aplicadores">Aplicadores</Link>
             </div>
